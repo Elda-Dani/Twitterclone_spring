@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 
 public class TwitterController {
@@ -21,6 +23,13 @@ public class TwitterController {
         System.out.println(twit.toString());
         dao.save(twit);
         return "{status:'success'}";
+    }
+
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/login",consumes = "application/json",produces = "application/json")
+    public List<TwitterModel> login(@RequestBody TwitterModel twit){
+        return (List<TwitterModel>) dao.twit(twit.getEmail(),twit.getPassword());
     }
 
 }
