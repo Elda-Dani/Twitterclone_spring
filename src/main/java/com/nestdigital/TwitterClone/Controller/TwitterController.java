@@ -1,6 +1,7 @@
 package com.nestdigital.TwitterClone.Controller;
 
 import com.nestdigital.TwitterClone.Dao.TwitterDao;
+
 import com.nestdigital.TwitterClone.Model.TwitterModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -31,5 +32,7 @@ public class TwitterController {
     public List<TwitterModel> login(@RequestBody TwitterModel twit){
         return (List<TwitterModel>) dao.twit(twit.getEmail(),twit.getPassword());
     }
+
+
 
 }
